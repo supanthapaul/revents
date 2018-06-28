@@ -7,19 +7,22 @@ import 'semantic-ui-css/semantic.min.css';
 import './index.css';
 import App from './app/layout/App';
 import registerServiceWorker from './registerServiceWorker';
+import ScrollToTop from './app/common/util/ScrollToTop';
 
 const store = configureStore();
 
-function render() {
-      const root = document.getElementById('root');
-      ReactDOM.render(
-            <Provider store={store}>
-                  <BrowserRouter>
-                        <App />
-                  </BrowserRouter>
+const root = document.getElementById('root');
 
-            </Provider>
-            , root);
+function render() {
+   ReactDOM.render(
+      <Provider store={store}>
+         <BrowserRouter>
+            <ScrollToTop>
+               <App />
+            </ScrollToTop>
+         </BrowserRouter>
+      </Provider>
+      , root);
 }
 
 render();
